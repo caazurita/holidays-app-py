@@ -46,8 +46,8 @@ class AgentService:
             response = self.client.models.generate_content(
                 model="gemini-3-flash-preview", contents=prompt
             )
-            print(response.text)
             map =  AgentService.extract_json(response.text)
             return [Summary(**item) for item in map]
         except Exception as e:
+            print('error running agent:', e)
             return e

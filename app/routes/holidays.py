@@ -12,4 +12,4 @@ async def get_next_holidays(country: str, filter: Filter):
     holidays = await holiday_service.get_holidays(country, filter)
     if not holidays:
         return []
-    return holidays
+    return {"succes": True, "body": holidays}
