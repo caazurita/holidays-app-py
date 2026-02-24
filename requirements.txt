@@ -1,0 +1,6 @@
+fastapi[standard]
+pydantic
+google-genai
+httpx
+redis
+python-dotenv
