@@ -1,0 +1,15 @@
+[project]
+name = "holiday-app"
+version = "1.0.0"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[standard]",
+    "pydantic",
+    "google-genai",
+    "httpx",
+    "redis",
+    "python-dotenv",
+]
+
+[tool.fastapi]
+entrypoint = "main:app"

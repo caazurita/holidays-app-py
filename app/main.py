@@ -8,6 +8,11 @@ app = FastAPI(
     description="API to fetch upcoming holidays based on country and filter criteria",
     version="1.0.0",
 )
+app.get("/")(
+    lambda: {
+        "message": "Welcome to the Holiday API. Use /holidays/next-holidays to fetch upcoming holidays."
+    }
+)
 app.include_router(holidays_router, prefix="/holidays", tags=["Holidays"])
 items = []
 
