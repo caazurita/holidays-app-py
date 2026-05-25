@@ -10,7 +10,12 @@ app = FastAPI(
 )
 app.get("/")(
     lambda: {
-        "message": "Welcome to the Holiday API. Use /holidays/next-holidays to fetch upcoming holidays."
+        "message": "Welcome to the Holiday API. Use /holidays/next-holidays to fetch upcoming holidays. Or visit https://github.com/caazurita/holidays-app-py for more details.",
+        "body": {
+            "country": "Country code (e.g., US, GB, IN)",
+            "filter": "Filter criteria (e.g., current-month, next-month, next-year)",
+            "exampleUrl": "http://localhost:8000/holidays/next-holidays?country=MX&filter=current-month",
+        },
     }
 )
 app.include_router(holidays_router, prefix="/holidays", tags=["Holidays"])
