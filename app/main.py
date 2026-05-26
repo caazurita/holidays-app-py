@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel
 import time
+import os
 from app.routes.holidays import router as holidays_router
 
 app = FastAPI(
@@ -14,7 +15,7 @@ app.get("/")(
         "body": {
             "country": "Country code (e.g., US, GB, IN)",
             "filter": "Filter criteria (e.g., current-month, next-month, next-year)",
-            "exampleUrl": "http://localhost:8000/holidays/next-holidays?country=MX&filter=current-month",
+            "exampleUrl": os.getenv("BASE_URL") + "/holidays/next-holidays?country=MX&filter=current-month",
         },
     }
 )

@@ -84,12 +84,16 @@ pip install -r requirements.txt
 Create a `.env` file in the project root:
 
 ```env
+BASE_URL=your_base_url
 GOOGLE_API_KEY=your_google_gemini_api_key
 
 REDIS_HOST=your-redis-host
 REDIS_PORT=your-redis-port
 REDIS_USERNAME=default
 REDIS_PASSWORD=your-redis-password
+
+#Or RedisURL
+REDIS_URL=your-redis-url
 ```
 
 > **Security:** Never commit your `.env` file. The project's `.gitignore` already excludes it.

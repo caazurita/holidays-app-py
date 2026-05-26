@@ -11,5 +11,8 @@ holiday_service = HolidayService()
 async def get_next_holidays(country: str, filter: Filter):
     holidays = await holiday_service.get_holidays(country, filter)
     if not holidays:
-        return []
-    return {"succes": True, "body": holidays}
+        return {
+            "success": True,
+            "body": "No holidays found for the specified country and filter.",
+        }
+    return {"success": True, "body": holidays}

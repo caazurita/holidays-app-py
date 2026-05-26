@@ -10,13 +10,18 @@ load_dotenv()
 
 class HolidayCacheService:
     def __init__(self):
-        self.redis = redis.Redis(
-            host=os.getenv("REDIS_HOST", "localhost"),
-            port=os.getenv("REDIS_PORT"),
-            decode_responses=True,
-            username=os.getenv("REDIS_USERNAME", "default"),
-            password=os.getenv("REDIS_PASSWORD", "default"),
-        )
+        
+        # initialize the Redis client with environment variables
+        # self.redis = redis.Redis(
+        #     host=os.getenv("REDIS_HOST", "localhost"),
+        #     port=os.getenv("REDIS_PORT"),
+        #     decode_responses=True,
+        #     username=os.getenv("REDIS_USERNAME", "default"),
+        #     password=os.getenv("REDIS_PASSWORD", "default"),
+        # )
+
+        # initialize the Redis client with the REDIS_URL environment variable
+        self.redis = redis.Redis.from_url(os.getenv("REDIS_URL"), decode_responses=True)
 
     def _build_key(self, local_name: str, country: str) -> str:
         return f"holiday:{country}:{local_name}"
