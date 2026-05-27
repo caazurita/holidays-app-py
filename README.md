@@ -10,6 +10,20 @@ A FastAPI-powered REST API that fetches public holidays worldwide, enriches them
 
 ---
 
+## Live Demo
+
+A live instance is deployed at **https://holidays-app-py.onrender.com**.
+
+> ⏳ The API runs on a free Render instance, so it may take **a few seconds** to wake up on the first request after a period of inactivity.
+
+Try it out:
+
+```bash
+curl "https://holidays-app-py.onrender.com/holidays/next-holidays?country=MX&filter=current-month"
+```
+
+---
+
 ## Features
 
 - **Global holiday data** — sourced from the [Nager.Date](https://date.nager.at/) public API.
